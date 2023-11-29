@@ -10,7 +10,7 @@ def popup_window():
     window = tk.Toplevel()
     window.geometry("280x300")
     window.title("A/B результат")
-    
+        
     # Добавление кнопки закрытия окна
     btnClosePopup = tk.Button(window, text="Закрыть", font = ('Helvetica', 10, 'bold'), command=window.destroy)
     btnClosePopup.place(x=160, y=250, width=90, height=30)
@@ -19,6 +19,9 @@ def popup_window():
 root = tk.Tk()
 root.geometry("280x300")
 root.title("A/B калькулятор")
+
+canvas = tk.Canvas(root, width=280, height=300, bg="lightblue")
+canvas.pack()
 
 # Добавление метки заголовка
 lblTitle = tk.Label(text = "A/B калькулятор", font = ('Helvetica', 16, 'bold'), fg = '#000066')
