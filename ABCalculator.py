@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import messagebox as mb
 import os
 import math
+from scipy.stats import norm
 
 # Функция закрытия программы
 def do_close():
@@ -94,6 +95,13 @@ def popup_window(n1, c1, n2, c2):
     txtOutput.insert(tk.END, '                   До     ' + num_percent(upper1_99)      +'   ' + num_percent(upper2_99) + os.linesep)
     txtOutput.insert(tk.END, '---------------------------------------------------------' + os.linesep)   
         
+    #  Высиление Z и P
+    z_score = (p2-p1)/math.sqrt(sigma1*sigma1 + sigma2*sigma2)
+    txtOutput.insert(tk.END, 'Z = ' + "{:.7f}".format(z_score) + os.linesep)
+    
+    p_value = norm.sf(x=z_score, loc=0, scale=1)
+    txtOutput.insert(tk.END, 'P = ' + "{:.7f}".format(p_value) + os.linesep)
+    
     # Добавление кнопки закрытия окна
     btnClosePopup = tk.Button(window, text="Закрыть", font = ('Helvetica', 10, 'bold'), command=window.destroy)
     btnClosePopup.place(x=190, y=450, width=90, height=30)
