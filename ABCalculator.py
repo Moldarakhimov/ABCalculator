@@ -34,13 +34,19 @@ def popup_window(n1, c1, n2, c2):
     window.geometry("500x500")
     window.title("A/B результат")
     
+    # Добавление цвета фона
+    window.configure(bg="lightcoral")
+    
     # Добавление окна вывода текста
-    txtOutput = tk.Text(window, font = ('Courier New', 10, 'bold'))
+    txtOutput = tk.Text(window, font = ('Courier New', 10, 'bold'), fg = 'black')
     txtOutput.place(x=15, y=115, width=470, height=300)
+    
+    # Открытие окна результатов
+    txtOutput.configure(bg="khaki")
     
     # Добавление заголовка
     txtOutput.insert(tk.END, '                             Контрольная     Тестовая' + os.linesep)
-    txtOutput.insert(tk.END, '                             группа          Группа' + os.linesep)
+    txtOutput.insert(tk.END, '                               группа         группа' + os.linesep)
     txtOutput.insert(tk.END, '---------------------------------------------------------' + os.linesep)
     
     # Добавление вывода конверсии и стандартного оттклонения
